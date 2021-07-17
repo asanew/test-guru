@@ -24,7 +24,7 @@ quests = Question.create!([ {body: 'Перечислите виды циклов
                   {body: 'Что такое таблица', test_id: tests[3].id},
                   {body: 'Как задаётся условие соединения', test_id: tests[4].id} ])
 
-answers = Answer.create!([ {body: 'if, case, else', correct: false, question_id: quests[0].id},
+Answer.create!([ {body: 'if, case, else', correct: false, question_id: quests[0].id},
                 {body: 'while, for', correct: true, question_id: quests[0].id},
                 {body: 'Параллельно', correct: false, question_id: quests[1].id},
                 {body: 'По одной из ветвей', correct: true, question_id: quests[1].id},
@@ -34,6 +34,15 @@ answers = Answer.create!([ {body: 'if, case, else', correct: false, question_id:
                 {body: 'Структура, задающая состав информации', correct: true, question_id: quests[3].id},
                 {body: 'С помощью CONNECT', correct: false, question_id: quests[4].id},
                 {body: 'С помощью ON', correct: true, question_id: quests[4].id} ])
+
+# Без модели многие-ко-многим нельзя выполнить задание про
+# пользователей и пройденные ими тесты, т.к. каждый пользователь
+# может проходить множество тестов и каждый тест может проходить
+# много пользователей, до этого у нас был только один аттрибут,
+# связывающий тест и пользователя - автор, но там связь
+# один-ко-многим и автор - это не тот, кто тест проходит
+
+# Заполнение данными нужно для тестирования корректности работы
 
 TestResult.create!([ {user_id: users[0].id, test_id: tests[0].id},
                     {user_id: users[0].id, test_id: tests[1].id},
