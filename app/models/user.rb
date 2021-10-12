@@ -6,11 +6,11 @@ class User < ApplicationRecord
   validates :login, presence: true
 
   scope :by_test_level, -> (test_level) {
-    User.joins(:tests)
+    joins(:tests)
       .where('tests.level = ?',test_level).distinct
   }
 
   def get_tests(test_level)
-    User.by_test_level(test_level).where(id: self.id).first.tests
+    by_test_level(test_level).where(id: self.id).first.tests
   end
 end
