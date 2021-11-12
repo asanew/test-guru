@@ -6,11 +6,9 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = @test.questions
-    render inline: "<% @questions.each do |q| %><p><%= q.body %></p><% end %>"
   end
 
   def show
-    render inline: "<p>Вопрос: <%= @question.body %><br>Из теста: <%= @question.test.title %></p>"
   end
 
   def new

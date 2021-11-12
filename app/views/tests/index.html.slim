@@ -12,7 +12,7 @@ table
   tbody
     - @tests.each do |test|
       tr
-        td= link_to test.id, test_questions_path(test)
+        td= link_to test.id, test
         td= test.title
         td= test.level
         td= test.questions.count

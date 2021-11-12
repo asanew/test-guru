@@ -1,0 +1,14 @@
+p
+  = "Название: #{@test.title}"
+  br
+  = "Уровень: #{@test.level}"
+  br
+  = "Категория: #{@test.category.title}"
+  br
+  = "Автор: #{@test.author.login}"
+p
+  | Вопросы теста:
+  - if @test.questions.empty?
+    | В тесте нет вопросов
+  - else
+    = render @test.questions
