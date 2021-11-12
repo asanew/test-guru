@@ -11,4 +11,8 @@ p
   - if @test.questions.empty?
     | В тесте нет вопросов
   - else
-    = render @test.questions
+    = render partial: 'questions/questions_table', locals: { table_body: (render @test.questions).html_safe }
+  =link_to 'Добавить вопрос', new_test_question_path(@test)
+p
+  = link_to 'К списку тестов', tests_path
+

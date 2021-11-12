@@ -33,6 +33,11 @@ class QuestionsController < ApplicationController
   end
 
   def update
+    if @question.update(question_params)
+      redirect_to @question
+    else
+      render :edit
+    end
   end
 
   private
@@ -47,6 +52,7 @@ class QuestionsController < ApplicationController
   
   def set_question
     @question = Question.find(params[:id])
+    @test = @question.test
   end
 
   def rescue_from_question_not_found
