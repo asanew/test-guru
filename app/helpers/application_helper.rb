@@ -1,5 +1,6 @@
 module ApplicationHelper
   AUTHOR_NAME = 'Асанов С.А.'.freeze
+
   def current_year
     Time.current.year
   end

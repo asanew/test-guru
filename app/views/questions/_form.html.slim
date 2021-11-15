@@ -1,7 +1,6 @@
-h1= question_header
+h1= question_header(@question)
 
-- models = (action_name == 'new' || action_name == 'create')  ? [@test, @question] : @question
-= form_with model: models, remote: false do |f|
+= form_with model: [@test, @question], remote: false do |f|
   p
     = f.label :body, 'Текст вопроса'
     = f.text_field :body
