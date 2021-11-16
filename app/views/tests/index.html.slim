@@ -6,13 +6,15 @@ table
       th ID
       th Название
       th Уровень
+      th Кол-во вопросов
       th Категория
       th Автор
   tbody
     - @tests.each do |test|
       tr
-        td= link_to test.id, test_questions_path(test)
+        td= link_to test.id, test
         td= test.title
         td= test.level
+        td= test.questions.count
         td= test.category.title
         td= test.author.login

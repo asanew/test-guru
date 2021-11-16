@@ -1,6 +1,16 @@
 class TestsController < ApplicationController
+
   def index
     @tests = Test.all
-    render :index, layout: false
+  end
+
+  def show
+    set_test
+  end
+
+  private
+
+  def set_test
+    @test = Test.find(params[:id])
   end
 end

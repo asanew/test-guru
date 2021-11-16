@@ -1,0 +1,10 @@
+h1= question_header(@question)
+
+= form_with model: [@test, @question], remote: false do |f|
+  p
+    = f.label :body, 'Текст вопроса'
+    = f.text_field :body
+  p
+    = f.submit 'Сохранить'
+
+= render partial: 'test_nav'
